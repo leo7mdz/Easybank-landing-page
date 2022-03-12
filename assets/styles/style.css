@@ -1,0 +1,265 @@
+:root {
+  /* primary */
+  --Dark-Blue: hsl(233, 26%, 24%);
+  --Lime-Green: hsl(136, 65%, 51%);
+  --Bright-Cyan: hsl(192, 70%, 51%);
+
+  /* neutral */
+  --Grayish-Blue: hsl(233, 8%, 62%);
+  --Light-Grayish-Blue: hsl(220, 16%, 96%);
+  --Very-Light-Gray: hsl(0, 0%, 98%);
+  --White: hsl(0, 0%, 100%);
+}
+
+html {
+  box-sizing: border-box;
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Public Sans', sans-serif;
+  margin: 0;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: var(--White);
+  height: 2.5rem;
+  padding: 1rem;
+  z-index: 100;
+  transition: padding 0.3s;
+}
+
+.menu {
+  margin-top: 0;
+  position: absolute;
+  top: 99%;
+  left: 0;
+  width: 100%;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: var(--Very-Light-Gray);
+
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  transition: clip-path 0.3s linear;
+}
+
+.menu-active {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.menu__link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  color: var(--Dark-Blue);
+  text-decoration: none;
+  transition: font-weigth 0.3s;
+}
+.menu__link:hover {
+  background-color: rgba(0, 255, 255, 0.6);
+  border-radius: 1rem;
+  font-weight: 600;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+.box-1 {
+  padding: 0;
+}
+
+.box-1,
+.box-2 {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.box-2 {
+  background-color: var(--Light-Grayish-Blue);
+  margin-bottom: 1rem;
+}
+
+.bg-hero {
+  background-image: url(../images/bg-intro-mobile.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-hero__img {
+  transition: transform 0.2s linear;
+}
+
+.title {
+  color: var(--Dark-Blue);
+}
+.title-info {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.paragraph {
+  color: var(--Grayish-Blue);
+  font-weight: 300;
+}
+
+.btn,
+.footer-btn {
+  font-size: 1rem;
+  padding: 0.8rem 1.3rem;
+  border: transparent;
+  border-radius: 1.2rem;
+  color: var(--Very-Light-Gray);
+  background-image: linear-gradient(135deg, green, cyan);
+  transition: opacity 0.3s ease-in-out;
+}
+
+.btn:hover,
+.footer-btn:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.about-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.about-card {
+  margin: 1rem;
+}
+
+.about-img {
+  margin-left: auto;
+  margin-right: auto;
+}
+.title-box-2 {
+  font-size: 1.6rem;
+}
+.article-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin: 1rem;
+}
+
+.article-card {
+  background-color: var(--Very-Light-Gray);
+  margin: 1rem;
+  /*  width: 320px; */
+  height: 460px;
+}
+
+.article-title {
+  font-size: 2rem;
+  font-weight: 400;
+}
+.card-image {
+  height: 200px;
+  width: 100%;
+}
+.card-image img {
+  border-radius: 0.7rem 0.7rem 0 0;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.card-text {
+  padding: 1rem 1.4rem;
+}
+.card-author {
+  color: var(--Grayish-Blue);
+  font-size: 0.8rem;
+}
+
+.footer {
+  display: grid;
+  justify-content: center;
+  background-color: var(--Dark-Blue);
+  padding-top: 2.5rem;
+}
+.footer-img {
+  backdrop-filter: brightness(0.7);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-link {
+  display: block;
+  padding: 0.3rem;
+}
+
+.footer-copyright {
+  text-align: center;
+}
+
+@media screen and (min-width: 765px) {
+  .icon-menu {
+    display: none;
+  }
+  .menu {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    position: initial;
+    flex-direction: row;
+    align-items: center;
+    background-color: transparent;
+  }
+  .box-1 {
+    flex-direction: row;
+  }
+
+  .bg-hero {
+    background-image: url(../images/bg-intro-desktop.svg);
+    order: 1;
+  }
+  .footer {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+  }
+}
+@media screen and (min-width: 991px) {
+  .bg-hero__img {
+    transition: transform 0.2s linear;
+    transform: translateY(120px);
+  }
+  .header {
+    padding: 1.6rem 4rem;
+  }
+  .footer-link {
+    padding: 1rem;
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
